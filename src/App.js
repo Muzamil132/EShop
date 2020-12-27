@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Appbar from './Appbar';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import Product from './Product';
+import Cart from './Cart';
+import Admin from './Admin';
+import Carosoul from './Carosoul'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <Appbar/>
+    <Carosoul/>
+    <Switch>
+      <Route exact path="/"  component={Product} />
+      <Route exact path="/Cart" component={Cart} />
+      <Route exact path="/admin" component={Admin} />
+    </Switch>
+  
+    </Router>
+
     </div>
   );
 }
+
 
 export default App;
